@@ -876,10 +876,10 @@ public class Lab10_P2_DiegoChavez extends javax.swing.JFrame {
             if (object.getEstado().equals("en espera de pago de reparacion")) {
 
                 tm.addRow(new Object[]{object.getMarca(), object.getID(), object.getModelo(), object.getCosto()});
-ac.getListacarros().get(contador).setEstado("");
+                ac.getListacarros().get(contador).setEstado("");
             }
             contador++;
-            
+
         }
     }//GEN-LAST:event_jButton4MouseClicked
 
@@ -889,10 +889,8 @@ ac.getListacarros().get(contador).setEstado("");
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
 // este/!!!!1
-DefaultTableModel tm = (DefaultTableModel) jTable3.getModel();
-if (jTable3.getSelectedRow()){
-
-}
+        DefaultTableModel tm = (DefaultTableModel) jTable3.getModel();
+        
     }//GEN-LAST:event_jButton7MouseClicked
 
     /**
