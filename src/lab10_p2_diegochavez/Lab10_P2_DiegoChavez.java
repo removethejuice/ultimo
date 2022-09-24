@@ -5,16 +5,29 @@
  */
 package lab10_p2_diegochavez;
 
+import java.io.IOException;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JDialog;
 
 /**
  *
  * @author 50497
  */
 public class Lab10_P2_DiegoChavez extends javax.swing.JFrame {
-Random rand = new Random();
+
+    Random rand = new Random();
+
+    private void entrar(JDialog cosa) {
+        cosa.setModal(true);
+        cosa.pack();
+        cosa.setLocationRelativeTo(this);
+        cosa.setVisible(true);
+    }
+
     /**
      * Creates new form Lab10_P2_DiegoChavez
      */
@@ -76,14 +89,20 @@ Random rand = new Random();
         jPanel4 = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton8 = new javax.swing.JButton();
-        jDialog3 = new javax.swing.JDialog();
+        simulacion = new javax.swing.JDialog();
         jComboBox3 = new javax.swing.JComboBox<>();
         jComboBox4 = new javax.swing.JComboBox<>();
         jProgressBar1 = new javax.swing.JProgressBar();
         jButton_simulacion = new javax.swing.JButton();
         jLabel_Estado = new javax.swing.JLabel();
-        jDialog4 = new javax.swing.JDialog();
+        tabla = new javax.swing.JDialog();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jDialog5 = new javax.swing.JDialog();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jLabel15 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
         jDialog6 = new javax.swing.JDialog();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -442,61 +461,119 @@ Random rand = new Random();
 
         jLabel_Estado.setText("Estado");
 
-        javax.swing.GroupLayout jDialog3Layout = new javax.swing.GroupLayout(jDialog3.getContentPane());
-        jDialog3.getContentPane().setLayout(jDialog3Layout);
-        jDialog3Layout.setHorizontalGroup(
-            jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog3Layout.createSequentialGroup()
+        javax.swing.GroupLayout simulacionLayout = new javax.swing.GroupLayout(simulacion.getContentPane());
+        simulacion.getContentPane().setLayout(simulacionLayout);
+        simulacionLayout.setHorizontalGroup(
+            simulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(simulacionLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDialog3Layout.createSequentialGroup()
+                .addGroup(simulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(simulacionLayout.createSequentialGroup()
                         .addComponent(jButton_simulacion)
                         .addGap(226, 226, 226)
                         .addComponent(jLabel_Estado))
-                    .addGroup(jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(simulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jDialog3Layout.createSequentialGroup()
+                        .addGroup(simulacionLayout.createSequentialGroup()
                             .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(101, 101, 101)
                             .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(231, Short.MAX_VALUE))
         );
-        jDialog3Layout.setVerticalGroup(
-            jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog3Layout.createSequentialGroup()
+        simulacionLayout.setVerticalGroup(
+            simulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(simulacionLayout.createSequentialGroup()
                 .addGap(64, 64, 64)
-                .addGroup(jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(simulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(56, 56, 56)
                 .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
-                .addGroup(jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(simulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton_simulacion)
                     .addComponent(jLabel_Estado))
                 .addContainerGap(145, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jDialog4Layout = new javax.swing.GroupLayout(jDialog4.getContentPane());
-        jDialog4.getContentPane().setLayout(jDialog4Layout);
-        jDialog4Layout.setHorizontalGroup(
-            jDialog4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 486, Short.MAX_VALUE)
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Carro", "Empleado", "Exito?"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        javax.swing.GroupLayout tablaLayout = new javax.swing.GroupLayout(tabla.getContentPane());
+        tabla.getContentPane().setLayout(tablaLayout);
+        tablaLayout.setHorizontalGroup(
+            tablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tablaLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(76, Short.MAX_VALUE))
         );
-        jDialog4Layout.setVerticalGroup(
-            jDialog4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 336, Short.MAX_VALUE)
+        tablaLayout.setVerticalGroup(
+            tablaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tablaLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(211, Short.MAX_VALUE))
         );
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Marca", "ID", "Modelo", "Costo"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable3);
+
+        jLabel15.setText("Pagos");
+
+        jButton7.setText("Pagado");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jDialog5Layout = new javax.swing.GroupLayout(jDialog5.getContentPane());
         jDialog5.getContentPane().setLayout(jDialog5Layout);
         jDialog5Layout.setHorizontalGroup(
             jDialog5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jDialog5Layout.createSequentialGroup()
+                .addGroup(jDialog5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDialog5Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDialog5Layout.createSequentialGroup()
+                        .addGap(206, 206, 206)
+                        .addComponent(jLabel15))
+                    .addGroup(jDialog5Layout.createSequentialGroup()
+                        .addGap(192, 192, 192)
+                        .addComponent(jButton7)))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         jDialog5Layout.setVerticalGroup(
             jDialog5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jDialog5Layout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(jLabel15)
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addComponent(jButton7)
+                .addContainerGap(136, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jDialog6Layout = new javax.swing.GroupLayout(jDialog6.getContentPane());
@@ -513,16 +590,41 @@ Random rand = new Random();
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Empleados");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jButton2.setText("Carros");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         jButton3.setText("Simulacion");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         jButton4.setText("Pagos");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         jButton5.setText("Entregas");
 
         jButton6.setText("Reparaciones");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -573,7 +675,7 @@ Random rand = new Random();
         //String marca, String modelo, int anio, String estado, int costo, String ID 
         DefaultComboBoxModel rt = (DefaultComboBoxModel) jComboBox2.getModel();
         carros temporalcarros = new carros(jTextField_marcacrearcarro.getText(), jTextField_modelocrearcarro.getText(),
-                Integer.parseInt(jFormattedTextFieldjTextField_aniocrearcarro.getText()), "espera",
+                Integer.parseInt(jFormattedTextFieldjTextField_aniocrearcarro.getText()), "espera de entrar a reparacion",
                 Integer.parseInt(jFormattedTextField_jTextField_costocrearcarro.getText()), jTextField_IDcrearcarro.getText());
         admincarros ap = new admincarros();
         ap.leerArchivo();
@@ -647,7 +749,7 @@ Random rand = new Random();
 //String nombre, int edad, String identidad, int num
 
         empleado temporalempleado = new empleado(jTextField1.getText(), Integer.parseInt(jFormattedTextField1.getText()), jTextField2.getText(),
-                Integer.parseInt(jFormattedTextField2.getText())  );
+                Integer.parseInt(jFormattedTextField2.getText()));
         adminempleados ae = new adminempleados();
         ae.leerArchivo();
         ae.getListaempleados().add(temporalempleado);
@@ -688,39 +790,110 @@ Random rand = new Random();
 
     private void jButton_simulacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton_simulacionMouseClicked
         admincarros ae = new admincarros();
-
+        int contadorx = 0;
+        int contadory = 0;
+        String estado = "";
         for (carros object : ae.getListacarros()) {
             if (object.getID().equals(jComboBox4.getSelectedItem())) {
                 jProgressBar1.setMaximum((int) object.getCosto() / 1000);
                 hilo x1 = new hilo(jProgressBar1, object);
             }//fin del if
+            contadorx++;
         }
         adminempleados ap = new adminempleados();
-         for (empleado object : ap.getListaempleados()) {
-            if (object.getIdentidad().equals(jComboBox3.getSelectedItem())){
-         int contador = 1+rand.nextInt(100);
-         int contador2 =0;
-        if(object.getNum()<6){
-        contador2 = 1+rand.nextInt(70);
-        }
-        else if (object.getNum()<16){
-        contador2 = 1+rand.nextInt(22);
-        }
-        else if (object.getNum()<31){
-        contador2 = 1+rand.nextInt(93);
-        }
-        if (contador - contador2 >=0){
-        jLabel_Estado.setText("EXITO");
-        }
-        else  jLabel_Estado.setText("fracaso");
-            }// fin del if
-         }// fin del fore
+        for (empleado object : ap.getListaempleados()) {
+            if (object.getIdentidad().equals(jComboBox3.getSelectedItem())) {
+                int contador = 1 + rand.nextInt(100);
+                int contador2 = 0;
+                if (object.getNum() < 6) {
+                    contador2 = 1 + rand.nextInt(70);
+                } else if (object.getNum() < 16) {
+                    contador2 = 1 + rand.nextInt(22);
+                } else if (object.getNum() < 31) {
+                    contador2 = 1 + rand.nextInt(93);
+                }
 
+                if (contador - contador2 >= 0) {
+                    estado = "EXITO";
+                    jLabel_Estado.setText("EXITO");
+
+                    ap.getListaempleados().get(contadory).setNum(ap.getListaempleados().get(contadory).getNum() + 1);
+                    ae.getListacarros().get(contadorx).setEstado("en espera de pago de reparacion");
+                    bitacora b1 = new bitacora(ae.getListacarros().get(contadorx), ap.getListaempleados().get(contadory), estado);
+                    try {
+                        b1.escribirArchivo();
+                    } catch (IOException ex) {
+                        Logger.getLogger(Lab10_P2_DiegoChavez.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    estado = "fracaso";
+                    jLabel_Estado.setText("fracaso");
+                    ae.getListacarros().get(contadorx).setEstado("en reparacion");
+                    bitacora b1 = new bitacora(ae.getListacarros().get(contadorx), ap.getListaempleados().get(contadory), estado);
+                    try {
+                        b1.escribirArchivo();
+                    } catch (IOException ex) {
+                        Logger.getLogger(Lab10_P2_DiegoChavez.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                }// fin del else
+
+            }// fin del if
+            contadory++;
+
+        }// fin del fore
+        DefaultTableModel tm = (DefaultTableModel) jTable2.getModel();
+        tm.addRow(new Object[]{ae.getListacarros().get(contadorx), ap.getListaempleados().get(contadory), estado});
     }//GEN-LAST:event_jButton_simulacionMouseClicked
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        entrar(EmpleadosVentana);
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        entrar(CarrosVentana);
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        entrar(simulacion);
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        entrar(tabla);
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        entrar(jDialog5);
+        DefaultTableModel tm = (DefaultTableModel) jTable3.getModel();
+        tm.setNumRows(0);
+        admincarros ac = new admincarros();
+        int contador = 0;
+        for (carros object : ac.getListacarros()) {
+            if (object.getEstado().equals("en espera de pago de reparacion")) {
+
+                tm.addRow(new Object[]{object.getMarca(), object.getID(), object.getModelo(), object.getCosto()});
+ac.getListacarros().get(contador).setEstado("");
+            }
+            contador++;
+            
+        }
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+// este/!!!!1
+DefaultTableModel tm = (DefaultTableModel) jTable3.getModel();
+if (jTable3.getSelectedRow()){
+
+}
+    }//GEN-LAST:event_jButton7MouseClicked
 
     /**
      * @param args the command line arguments
@@ -767,6 +940,7 @@ Random rand = new Random();
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton_crearcarro;
     private javax.swing.JButton jButton_crearempleado;
@@ -775,8 +949,6 @@ Random rand = new Random();
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JDialog jDialog3;
-    private javax.swing.JDialog jDialog4;
     private javax.swing.JDialog jDialog5;
     private javax.swing.JDialog jDialog6;
     private javax.swing.JFormattedTextField jFormattedTextField1;
@@ -791,6 +963,7 @@ Random rand = new Random();
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -807,9 +980,13 @@ Random rand = new Random();
     private javax.swing.JPanel jPanel6;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField6;
@@ -818,5 +995,7 @@ Random rand = new Random();
     private javax.swing.JTextField jTextField_IDcrearcarro;
     private javax.swing.JTextField jTextField_marcacrearcarro;
     private javax.swing.JTextField jTextField_modelocrearcarro;
+    private javax.swing.JDialog simulacion;
+    private javax.swing.JDialog tabla;
     // End of variables declaration//GEN-END:variables
 }

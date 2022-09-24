@@ -1,4 +1,3 @@
-
 package lab10_p2_diegochavez;
 
 import java.io.EOFException;
@@ -9,10 +8,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-
 public class adminempleados {
+
     private ArrayList<empleado> listaempleados = new ArrayList();
     private File archivo = new File("./adminempleados.mb");
+    private static final long serie = 456L;
 
     public adminempleados() {
     }
@@ -32,8 +32,7 @@ public class adminempleados {
     public void setArchivo(File archivo) {
         this.archivo = archivo;
     }
-    
-    
+
     public void leerArchivo() {
         try {
             listaempleados = new ArrayList();
@@ -77,6 +76,5 @@ public class adminempleados {
             }
         }
     }// fin de escribir
-    
-    
+
 }

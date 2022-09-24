@@ -14,7 +14,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class admincarros {
-
+private static final long serie = 777L;
     private ArrayList<carros> listacarros = new ArrayList();
     private File archivo = new File("./admincarros.mb");
 
